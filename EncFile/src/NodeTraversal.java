@@ -1,4 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Stack;
+import java.util.TreeMap;
 
 class TreeNode {
 	int val;
@@ -11,6 +14,8 @@ class TreeNode {
 }
 
 public class NodeTraversal {
+
+	HashMap<String, Integer> hm = new HashMap<String, Integer>();
 
 	public static void main(String[] args) {
 		TreeNode rootNode = new TreeNode(40);
@@ -40,16 +45,30 @@ public class NodeTraversal {
 
 		// System.out.println("Pre-order_Iterative"); PreorderIter(rootNode);
 
-		System.out.println("Post-order_Iterative");
-		PostorderIter(rootNode);
+		// System.out.println("Post-order_Iterative"); PostorderIter(rootNode);
+
+		System.out.println("MaxSumSubPath");
+		int sum = MaxSumSubPath(rootNode);
+		System.out.println("max sum: " + sum);
+
+	}
+
+	private static int MaxSumSubPath(TreeNode rootNode) {
+
+		if (rootNode == null)
+			return 0;
+
+		return rootNode.val
+				+ Math.max(MaxSumSubPath(rootNode.left),
+						MaxSumSubPath(rootNode.right));
 
 	}
 
 	private static void PostorderIter(TreeNode rootNode) { // left...right...root
 		Stack<TreeNode> st = new Stack<TreeNode>();
 		while (rootNode != null) {
-			
-			if(!st.empty()){
+
+			if (!st.empty()) {
 				TreeNode tn = st.pop();
 				System.out.println(tn.val);
 				rootNode = null;
