@@ -15,7 +15,7 @@ public class PalindromeCheck {
 		hm.put(1, "orange");
 		
 		System.out.println("---------------");
-		System.out.println());
+		System.out.println();
 
 	}
 
