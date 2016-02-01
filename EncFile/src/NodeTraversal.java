@@ -18,13 +18,19 @@ public class NodeTraversal {
 	HashMap<String, Integer> hm = new HashMap<String, Integer>();
 
 	public static void main(String[] args) {
-		TreeNode rootNode = new TreeNode(40);
-		TreeNode node20 = new TreeNode(20);
-		TreeNode node10 = new TreeNode(10);
-		TreeNode node30 = new TreeNode(30);
-		TreeNode node60 = new TreeNode(60);
-		TreeNode node50 = new TreeNode(50);
-		TreeNode node70 = new TreeNode(70);
+		/*
+		 * TreeNode rootNode = new TreeNode(40); TreeNode node20 = new
+		 * TreeNode(20); TreeNode node10 = new TreeNode(10); TreeNode node30 =
+		 * new TreeNode(30); TreeNode node60 = new TreeNode(60); TreeNode node50
+		 * = new TreeNode(50); TreeNode node70 = new TreeNode(70);
+		 */
+		TreeNode rootNode = new TreeNode(50);
+		TreeNode node20 = new TreeNode(38);
+		TreeNode node10 = new TreeNode(37);
+		TreeNode node30 = new TreeNode(39);
+		TreeNode node60 = new TreeNode(40);
+		TreeNode node50 = new TreeNode(1);
+		TreeNode node70 = new TreeNode(2);
 
 		rootNode.left = node20;
 		rootNode.right = node60;
@@ -55,8 +61,21 @@ public class NodeTraversal {
 
 	private static int MaxSumSubPath(TreeNode rootNode) {
 
-		if (rootNode == null)
+		if (rootNode == null) //stop at Child
 			return 0;
+
+		// System.out.println(Math.max(MaxSumSubPath(rootNode.left),
+		// MaxSumSubPath(rootNode.right)));
+
+		if (rootNode.val < Math.max(MaxSumSubPath(rootNode.left),
+				MaxSumSubPath(rootNode.right)))
+
+		{
+			System.out.println(rootNode.val
+					+ "  "
+					+ Math.max(MaxSumSubPath(rootNode.left),
+							MaxSumSubPath(rootNode.right)));
+		}
 
 		return rootNode.val
 				+ Math.max(MaxSumSubPath(rootNode.left),
