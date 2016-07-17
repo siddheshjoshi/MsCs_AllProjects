@@ -6,23 +6,34 @@ import java.util.Set;
 
 public class HashMapTest {
 
-static	Set<Integer> s = new LinkedHashSet<Integer>();
+static String n = "test";
  public static void main(String[] args) {
-Random r = new Random();
 
-for(int i=0;i<3000000;i++){
-	addtoSet(r.nextInt(3000000));
-}
- 		
- 		System.out.println(s.iterator().next());
+	 
+	 String test = "Test";
+	 Template(test, "abc");
+	 ifExist(test);
+	 
+	 
 	}
 	
 	
-	public static void addtoSet(Integer str){
-		if(s.contains(str))
-			s.remove(str);
-		else
-			s.add(str);
+	public static void ifExist(Template s){
+	if(s.equals("Test")){
+		System.out.println("True");
+	}else{
+		System.out.println("False");
+	}
+	}
+	
+	public static void Template(String name, String title){
+		
+		
+		String n = "test";
+		name = n;
+		
+			
+		
 	}
 
 }
